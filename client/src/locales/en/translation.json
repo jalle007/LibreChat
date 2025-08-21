@@ -564,7 +564,7 @@
   "com_nav_tool_remove": "Remove",
   "com_nav_tool_search": "Search tools",
   "com_nav_user": "USER",
-  "com_nav_user_msg_markdown": "Render user messages as markdown",
+  "com_nav_user_msg_markdown": "Render user messages as ",
   "com_nav_user_name_display": "Display username in messages",
   "com_nav_voice_select": "Voice",
   "com_show_agent_settings": "Show Agent Settings",
@@ -1239,5 +1239,6 @@
   "com_ui_x_selected": "{{0}} selected",
   "com_ui_yes": "Yes",
   "com_ui_zoom": "Zoom",
-  "com_user_message": "You"
+  "com_user_message": "You",
+  "com_nav_lang_bosnian": "Bosnian"
 }

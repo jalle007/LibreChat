@@ -107,6 +107,7 @@ export const LangSelector = ({
     { value: 'fi-FI', label: localize('com_nav_lang_finnish') },
     { value: 'bo', label: localize('com_nav_lang_tibetan') },
     { value: 'uk-UA', label: localize('com_nav_lang_ukrainian') },
+    { value: 'bs', label: 'Bosanski' },
   ];
 
   return (

@@ -37,6 +37,7 @@ import translationZh_Hans from './zh-Hans/translation.json';
 import translationZh_Hant from './zh-Hant/translation.json';
 import translationBo from './bo/translation.json';
 import translationUk from './uk/translation.json';
+import translationBs from './bs/translation.json';
 
 export const defaultNS = 'translation';
 
@@ -75,6 +76,7 @@ export const resources = {
   fi: { translation: translationFi },
   bo: { translation: translationBo },
   uk: { translation: translationUk },
+  bs: { translation: translationBs },
 } as const;
 
 i18n
