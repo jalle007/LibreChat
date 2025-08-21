@@ -43,3 +43,75 @@ client\src\locales\bs\translation.json
 docker compose exec api sh
 chmod -R 777 /app/api/logs
 exit
+
+
+### INSTRUCT
+
+## 🔄 Rebuilding Process for Code Changes
+
+### For Local Development Changes:
+
+```bash
+# 1. Make your changes to the code
+# Edit files like: client/src/locales/bs/translation.json
+
+# 2. Rebuild only the API container (faster)
+docker compose build api
+
+# 3. Restart containers with new build
+docker compose down
+docker compose up -d
+
+# 4. Check logs to ensure everything works
+docker compose logs api
+```
+
+### Quick vs Full Rebuild:
+- **Quick rebuild**: `docker compose build api` (only rebuilds changed parts)
+- **Full clean rebuild**: `docker compose build --no-cache api` (rebuilds everything, slower but safer)
+
+---
+
+## 🚀 Deploying to Server
+
+### Option 1: Direct Docker Deployment
+```bash
+# On your server:
+git clone your-fork-repo
+cd LibreChat
+cp .env.example .env
+# Edit .env with production values
+
+# Create production docker-compose.override.yml
+# (similar to yours but without dev settings)
+
+docker compose build --no-cache
+docker compose up -d
+```
+
+### Option 2: Using Docker Registry (Recommended)
+```bash
+# 1. Build and tag your image locally
+docker build -t your-registry/librechat:latest .
+
+# 2. Push to registry (Docker Hub, AWS ECR, etc.)
+docker push your-registry/librechat:latest
+
+# 3. On server, pull and run
+docker pull your-registry/librechat:latest
+docker compose up -d
+```
+
+### Option 3: CI/CD Pipeline
+Set up GitHub Actions to automatically build and deploy when you push changes.
+
+---
+
+## ⚡ Development Workflow Summary:
+
+1. **Make changes** → Edit translation files
+2. **Test locally** → `docker compose build api && docker compose up -d`
+3. **Commit & push** → `git add . && git commit -m "Updated translations" && git push`
+4. **Deploy** → Pull changes on server and rebuild
+
+The key is that once you have the working Docker setup (which we just established), adding more translations is just editing JSON files and rebuilding!

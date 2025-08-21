@@ -1,0 +1,15 @@
+# This is a simplified override configuration
+services:
+  api:
+    user: "root"  # Run as root to fix permission issues
+    environment:
+      - PORT=3080
+    volumes:
+      - type: bind
+        source: ./.env
+        target: /app/.env
+      - ./images:/app/client/public/images
+      - ./uploads:/app/uploads
+      # Removed logs volume to avoid permission issues
+  mongodb:
+    user: "root"  # Run MongoDB as root as well

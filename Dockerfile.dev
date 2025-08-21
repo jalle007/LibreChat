@@ -1,0 +1,6 @@
+# Development Dockerfile with proper permissions
+FROM ghcr.io/danny-avila/librechat-dev:latest
+
+USER root
+RUN mkdir -p /app/api/logs && chmod -R 777 /app/api/logs && chown -R node:node /app/api/logs
+USER node
